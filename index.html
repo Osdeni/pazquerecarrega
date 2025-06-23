@@ -68,6 +68,7 @@
         .then(res => res.text())
         .then(data => {
             document.getElementById('resposta').textContent = 'Enviado com sucesso!';
+            console.log("Resposta do script:", data);
             form.reset();
         })
         .catch(() => {
