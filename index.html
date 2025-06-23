@@ -45,37 +45,35 @@
   <p id="resposta"></p>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkz2YeXPU3dAHWTFKAVKaibQBxb7CG57DRxCCT9Mg_xNWdE2Zsgn_LVsYCv-yZyqDF5g/exec';
-    const SECRET = 'minha_senha_supersecreta'; // Mesmo segredo usado no script
+    const scriptURL = 'https://script.google.com/macros/s/SEU_ID/exec';
+    const SECRET = 'minha_senha_supersecreta';
 
     document.getElementById('leadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      const formData = new FormData(this);
-      const jsonData = {};
-      formData.forEach((value, key) => jsonData[key] = value);
+        const form = e.target;
+        const formData = new FormData(form);
 
-      const timestamp = Date.now().toString();
-      const rawToken = SECRET + timestamp;
-      const hash = CryptoJS.SHA256(rawToken).toString();
+        const timestamp = Date.now().toString();
+        const rawToken = SECRET + timestamp;
+        const token = CryptoJS.SHA256(rawToken).toString();
 
-      jsonData.token = hash;
-      jsonData.timestamp = timestamp;
+        formData.append('token', token);
+        formData.append('timestamp', timestamp);
 
-      fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(jsonData),
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('resposta').textContent = 'Enviado com sucesso!';
-        this.reset();
-      })
-      .catch(() => {
-        document.getElementById('resposta').textContent = 'Erro ao enviar.';
-      });
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData // NÃO JSON
+        })
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('resposta').textContent = 'Enviado com sucesso!';
+            form.reset();
+        })
+        .catch(() => {
+            document.getElementById('resposta').textContent = 'Erro ao enviar.';
+        });
     });
-  </script>
+    </script>
 </body>
 </html>
