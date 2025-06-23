@@ -45,8 +45,7 @@
   <p id="resposta"></p>
 
   <script>
-    //const scriptURL = 'https://script.google.com/macros/s/AKfycbxkz2YeXPU3dAHWTFKAVKaibQBxb7CG57DRxCCT9Mg_xNWdE2Zsgn_LVsYCv-yZyqDF5g/exec';
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz3hqJo1AZh30kKATXcIIn-xqEjRC4Wq8QGT57y4waH/dev';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkz2YeXPU3dAHWTFKAVKaibQBxb7CG57DRxCCT9Mg_xNWdE2Zsgn_LVsYCv-yZyqDF5g/exec';
     const SECRET = 'minha_senha_supersecreta';
 
     document.getElementById('leadForm').addEventListener('submit', function(e) {
@@ -72,7 +71,8 @@
             console.log("Resposta do script:", data);
             form.reset();
         })
-        .catch(() => {
+        .catch((data) => {
+            console.log(data)
             document.getElementById('resposta').textContent = 'Erro ao enviar.';
         });
     });
