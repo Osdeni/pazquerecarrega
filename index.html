@@ -1,4 +1,171 @@
-<script>
+<!-- SUPER LANDING PAGE - ALTA CONVERSÃO COM EXPERT TEAM IA UX/NEURO/SEO/COPY -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transforme sua vida com nosso eBook gratuito e descubra nosso conteúdo premium que gera resultados reais!">
+  <meta name="keywords" content="ebook, desenvolvimento pessoal, transformação, autoconhecimento, propósito">
+  <title>Transforme Sua Vida - eBook Gratuito + Conteúdo Premium</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --accent: #FF6584;
+      --text: #1a1a1a;
+      --bg: #f9f9ff;
+      --font: 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    header {
+      background: linear-gradient(135deg, var(--primary), #5146D8);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 16px; }
+    header p { font-size: 1.25rem; max-width: 720px; margin: 0 auto; }
+
+    main {
+      max-width: 720px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    }
+    main h2 { text-align: center; color: var(--primary); font-size: 2.2rem; margin-bottom: 24px; }
+    .subtitle { text-align: center; font-size: 1.1rem; margin-bottom: 32px; color: #555; }
+
+    input, button {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover { background: #ff4b70; }
+    .loader {
+      display: none;
+      margin: 12px auto;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--accent);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .message { text-align: center; font-weight: bold; font-size: 1.05rem; margin-top: 16px; }
+
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .benefits div {
+      background: #f2f2f2;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+    }
+
+    .faq {
+      margin-top: 60px;
+    }
+    .faq h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .faq dt {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .faq dd {
+      margin: 10px 0 20px 0;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+      border-top: 1px solid #ddd;
+    }
+    footer a:hover { transform: scale(1.15); }
+    footer p, footer a { font-family: var(--font); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Transforme sua Vida em 5 Passos</h1>
+    <p>Baixe agora o eBook gratuito que já impactou milhares de pessoas e descubra o segredo de uma nova jornada.</p>
+  </header>
+
+  <main>
+    <h2>Receba o eBook Gratuito</h2>
+    <p class="subtitle">Comece hoje sua transformação com dicas práticas e inspiração diária.</p>
+    <form id="leadForm">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <input type="tel" name="telefone" placeholder="Seu telefone" required pattern="[0-9]{10,15}">
+      <button type="submit">Quero Receber</button>
+      <div class="loader" id="loader"></div>
+    </form>
+    <p class="message" id="resposta"></p>
+
+    <div class="benefits">
+      <div>✔️ Métodos validados por especialistas em comportamento humano</div>
+      <div>✔️ Reflexões diárias para mudar hábitos e fortalecer sua mentalidade</div>
+      <div>✔️ Exercícios práticos que geram clareza e ação</div>
+    </div>
+
+    <div class="faq">
+      <h3>❓ Perguntas Frequentes</h3>
+      <dl>
+        <dt>Este eBook é realmente gratuito?</dt>
+        <dd>Sim! Ele é 100% gratuito. Você receberá o link direto após preencher o formulário.</dd>
+
+        <dt>Como recebo o material?</dt>
+        <dd>Logo após o envio, você verá o link para download do eBook e também receberá no seu e-mail.</dd>
+
+        <dt>O conteúdo pago vale a pena?</dt>
+        <dd>Sim. Nossos cursos e desafios premium foram desenvolvidos com base em ciência, psicologia e fé prática. E são recomendados por nossos milhares de leitores.</dd>
+      </dl>
+    </div>
+  </main>
+
+  <!-- FOOTER SOCIALS + COPY -->
+  <footer>
+    <p style="margin-bottom: 24px; font-size: 1.2rem; font-weight: 600;">🔗 Conecte-se nas redes sociais</p>
+    <div style="font-size: 2.2rem; margin-bottom: 20px;">
+      <a href="https://facebook.com/sua_pagina" target="_blank" style="margin: 0 15px; color: #3b5998; text-decoration: none; transition: transform 0.2s;">📘</a>
+      <a href="https://instagram.com/sua_pagina" target="_blank" style="margin: 0 15px; color: #E4405F; text-decoration: none; transition: transform 0.2s;">📸</a>
+      <a href="https://tiktok.com/@sua_pagina" target="_blank" style="margin: 0 15px; color: #000000; text-decoration: none; transition: transform 0.2s;">🎵</a>
+    </div>
+    <p style="font-size: 1rem; color: #666; max-width: 680px; margin: 0 auto 24px;">
+      Nossa missão é transformar vidas com conteúdo que inspira, motiva e gera resultados reais. Confie, clique e avance rumo à sua melhor versão.
+    </p>
+    <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">&copy; 2025 Transforme com Propósito. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- FORM SCRIPT -->
+  <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxkz2YeXPU3dAHWTFKAVKaibQBxb7CG57DRxCCT9Mg_xNWdE2Zsgn_LVsYCv-yZyqDF5g/exec';
     const SECRET = 'minha_senha_supersecreta';
 
@@ -45,15 +212,6 @@
         }, 30000);
       });
     });
-</script>
-
-<!-- Redes Sociais -->
-<footer style="text-align: center; padding: 40px 20px; background: #f4f4f4; margin-top: 80px;">
-  <p style="margin-bottom: 20px; font-size: 1.1rem; color: #333;">Siga-nos nas redes sociais:</p>
-  <div style="font-size: 2rem;">
-    <a href="https://facebook.com/sua_pagina" target="_blank" style="margin: 0 15px; color: #3b5998; text-decoration: none;">📘</a>
-    <a href="https://instagram.com/sua_pagina" target="_blank" style="margin: 0 15px; color: #E4405F; text-decoration: none;">📸</a>
-    <a href="https://tiktok.com/@sua_pagina" target="_blank" style="margin: 0 15px; color: #000000; text-decoration: none;">🎵</a>
-  </div>
-  <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">&copy; 2025 Transforme com Propósito. Todos os direitos reservados.</p>
-</footer>
+  </script>
+</body>
+</html>
