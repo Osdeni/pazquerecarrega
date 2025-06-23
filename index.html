@@ -310,12 +310,15 @@
       e.preventDefault();
 
       const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
       const formData = new FormData(form);
       const loader = document.getElementById('loader');
       const resposta = document.getElementById('resposta');
 
       resposta.textContent = '';
       loader.style.display = 'block';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
 
       const timestamp = Date.now().toString();
       const token = CryptoJS.SHA256(SECRET + timestamp).toString();
@@ -329,15 +332,24 @@
       .then(res => res.text())
       .then(data => {
         loader.style.display = 'none';
-        resposta.innerHTML = `✅ Enviado com sucesso! <br><a href='https://fakeebook.com/download' target='_blank'>Clique aqui para baixar o eBook</a>`;
+        resposta.innerHTML = `✅ Enviado com sucesso! <br><a href='https://drive.google.com/file/d/1ygDIaCv7npsuSea6U1RzBXUBF3l831cA/view?usp=drive_link' target='_blank'>Clique aqui para baixar o eBook</a>`;
         form.reset();
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Quero Receber';
+        }, 30000);
       })
       .catch(err => {
         loader.style.display = 'none';
         resposta.textContent = '❌ Erro ao enviar. Tente novamente mais tarde.';
         console.error("Erro:", err);
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Quero Receber';
+        }, 30000);
       });
     });
   </script>
+
 </body>
 </html>
