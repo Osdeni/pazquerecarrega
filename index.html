@@ -84,6 +84,41 @@
       font-size: 1.05rem;
     }
 
+    .products {
+      margin: 60px 0;
+    }
+    .products h3 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+    .product-item {
+      background: #fff3f6;
+      border: 1px solid #ffdce2;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .product-item h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .product-item p {
+      margin-bottom: 16px;
+      color: #444;
+    }
+    .product-item a {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     .faq {
       margin-top: 60px;
     }
@@ -133,6 +168,25 @@
       <div>✔️ Métodos validados por especialistas em comportamento humano</div>
       <div>✔️ Reflexões diárias para mudar hábitos e fortalecer sua mentalidade</div>
       <div>✔️ Exercícios práticos que geram clareza e ação</div>
+    </div>
+
+    <div class="products">
+      <h3>✨ Conheça também nossos Produtos Premium</h3>
+      <div class="product-item">
+        <h4>Diário de Transformação</h4>
+        <p>Um diário guiado para registrar sua jornada e acelerar seu crescimento pessoal.</p>
+        <a href="#" target="_blank">Quero esse Diário</a>
+      </div>
+      <div class="product-item">
+        <h4>Desafio 30 Dias de Propósito</h4>
+        <p>Desperte seu propósito com 30 dias de exercícios, reflexões e planos de ação.</p>
+        <a href="#" target="_blank">Entrar no Desafio</a>
+      </div>
+      <div class="product-item">
+        <h4>Curso: Recomece por Você</h4>
+        <p>Curso digital completo para mulheres que querem se reencontrar emocionalmente.</p>
+        <a href="#" target="_blank">Acessar Curso</a>
+      </div>
     </div>
 
     <div class="faq">
@@ -197,19 +251,15 @@
         loader.style.display = 'none';
         resposta.innerHTML = `✅ Enviado com sucesso! <br><a href='https://drive.google.com/file/d/1ygDIaCv7npsuSea6U1RzBXUBF3l831cA/view?usp=drive_link' target='_blank'>Clique aqui para baixar o eBook</a>`;
         form.reset();
-        setTimeout(() => {
           submitButton.disabled = false;
           submitButton.textContent = 'Quero Receber';
-        }, 30000);
       })
       .catch(err => {
         loader.style.display = 'none';
         resposta.textContent = '❌ Erro ao enviar. Tente novamente mais tarde.';
         console.error("Erro:", err);
-        setTimeout(() => {
           submitButton.disabled = false;
           submitButton.textContent = 'Quero Receber';
-        }, 30000);
       });
     });
   </script>
